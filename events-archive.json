@@ -1404,6 +1404,13 @@
    "time": "19:30:00",
    "url": "http://waitingroomlounge.com/",
    "type": "concert"
+  },
+  {
+   "venue": "Slowdown",
+   "title": "Geordie Greep",
+   "date": "2026-10-14",
+   "time": "20:00:00",
+   "url": "https://www.theslowdown.com/"
   }
  ]
 }
