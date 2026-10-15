@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Nebraska Events is now Omaha Events and Lincoln Events</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<meta name="description" content="nebraska.here.events split into omaha.here.events and lincoln.here.events on October 15, 2026.">
+<script>
+// nebraska.here.events was one state-wide calendar from 2026-10-12 to 2026-10-15;
+// it split into omaha.here.events and lincoln.here.events ("split the nebrask
+// thing", Steve, 2026-10-14). A Teams link (?team=…) names its city, so it goes
+// straight on with the hash intact; everything else gets the choice below.
+// Share codes (?f=…) were bitmasks over the old registry and mean nothing on
+// the new sites, so they are not carried. GitHub Pages cannot redirect a
+// retired custom domain, so this stub keeps the old host alive.
+(function () {
+  var q = new URLSearchParams(location.search);
+  var team = (q.get('team') || '').split(',')[0];
+  var LINCOLN = /^(huskers|huskersbasketball|huskersvolleyball|stars)$/, OMAHA = /^(bluejays|mavericks|stormchasers|lancers|unionomaha)$/;
+  var host = LINCOLN.test(team) ? 'lincoln' : OMAHA.test(team) ? 'omaha' : '';
+  if (host) location.replace('https://' + host + '.here.events/?team=' + encodeURIComponent(q.get('team')) + location.hash);
+})();
+</script>
+<style>
+  :root { color-scheme: dark; }
+  body { font: 17px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; background: #141a20; color: #e8ecef; margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px 16px; box-sizing: border-box; }
+  main { max-width: 560px; width: 100%; }
+  .eyebrow { margin: 0 0 4px; color: #f08a33; letter-spacing: .22em; text-transform: uppercase; font-size: 13px; font-weight: 700; }
+  h1 { margin: 0 0 12px; font-size: clamp(26px, 5vw, 36px); line-height: 1.15; letter-spacing: -.01em; }
+  p { margin: 0 0 24px; color: #b9c2cb; }
+  .card { display: block; text-decoration: none; color: inherit; background: #1d252d; border: 1px solid #2c3640; border-radius: 12px; padding: 18px 20px; margin-bottom: 12px; transition: border-color .15s, transform .15s; }
+  .card:hover, .card:focus-visible { border-color: #f08a33; transform: translateY(-1px); outline: none; }
+  .card strong { display: block; font-size: 22px; margin-bottom: 2px; }
+  .card strong::after { content: " →"; color: #f08a33; }
+  .card span { color: #b9c2cb; font-size: 15px; }
+  .card small { display: block; margin-top: 6px; color: #f08a33; font-family: ui-monospace, Menlo, monospace; font-size: 13px; }
+  footer { margin-top: 28px; color: #7f8a95; font-size: 13px; }
+  footer a { color: #b9c2cb; }
+</style>
+</head><body>
+<main>
+  <p class="eyebrow">Nebraska</p>
+  <h1>Nebraska Events is now two sites</h1>
+  <p>The one state-wide calendar split by city on October 15, 2026. Pick yours, and make any filters, share links and calendar subscriptions again there.</p>
+  <a class="card" href="https://omaha.here.events/"><strong>Omaha Events</strong><span>The CHI Health Center, Baxter Arena, the Orpheum and the Holland, Steelhouse, the clubs; the Bluejays, the Mavericks, the Storm Chasers, the Lancers, Union Omaha.</span><small>omaha.here.events</small></a>
+  <a class="card" href="https://lincoln.here.events/"><strong>Lincoln Events</strong><span>Memorial Stadium, Pinnacle Bank Arena, the Devaney Center, the Lied Center, the Haymarket clubs; Husker football, basketball and volleyball, the Stars.</span><small>lincoln.here.events</small></a>
+  <footer>One of the <a href="https://here.events/">here.events</a> city calendars.</footer>
+</main>
+</body></html>
